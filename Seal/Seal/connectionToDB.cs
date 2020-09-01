@@ -19,6 +19,7 @@ namespace Seal
 
         public void Execute(string query)
         {
+            
             try
             {
 

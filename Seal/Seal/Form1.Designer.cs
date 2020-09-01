@@ -61,9 +61,15 @@
             this.textBoxDiap1 = new System.Windows.Forms.TextBox();
             this.textBoxDiap2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelData = new System.Windows.Forms.Panel();
+            this.DataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.panelReport.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelSeals.SuspendLayout();
+            this.panelData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panelReport
@@ -78,14 +84,14 @@
             this.panelReport.Controls.Add(this.checkBoxPlace);
             this.panelReport.Controls.Add(this.checkedListBoxReports);
             this.panelReport.Controls.Add(this.buttonRepport);
-            this.panelReport.Location = new System.Drawing.Point(679, 31);
+            this.panelReport.Location = new System.Drawing.Point(72, 62);
             this.panelReport.Name = "panelReport";
-            this.panelReport.Size = new System.Drawing.Size(424, 286);
+            this.panelReport.Size = new System.Drawing.Size(608, 286);
             this.panelReport.TabIndex = 0;
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(306, 124);
+            this.textBoxId.Location = new System.Drawing.Point(434, 106);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 22);
             this.textBoxId.TabIndex = 9;
@@ -94,7 +100,7 @@
             // checkBoxId
             // 
             this.checkBoxId.AutoSize = true;
-            this.checkBoxId.Location = new System.Drawing.Point(190, 125);
+            this.checkBoxId.Location = new System.Drawing.Point(318, 107);
             this.checkBoxId.Name = "checkBoxId";
             this.checkBoxId.Size = new System.Drawing.Size(79, 21);
             this.checkBoxId.TabIndex = 8;
@@ -104,7 +110,7 @@
             // 
             // textBoxTime
             // 
-            this.textBoxTime.Location = new System.Drawing.Point(306, 96);
+            this.textBoxTime.Location = new System.Drawing.Point(434, 78);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.Size = new System.Drawing.Size(100, 22);
             this.textBoxTime.TabIndex = 7;
@@ -112,7 +118,7 @@
             // 
             // textBoxNumber
             // 
-            this.textBoxNumber.Location = new System.Drawing.Point(306, 68);
+            this.textBoxNumber.Location = new System.Drawing.Point(434, 50);
             this.textBoxNumber.Name = "textBoxNumber";
             this.textBoxNumber.Size = new System.Drawing.Size(100, 22);
             this.textBoxNumber.TabIndex = 6;
@@ -120,7 +126,7 @@
             // 
             // textBoxPlace
             // 
-            this.textBoxPlace.Location = new System.Drawing.Point(306, 40);
+            this.textBoxPlace.Location = new System.Drawing.Point(434, 22);
             this.textBoxPlace.Name = "textBoxPlace";
             this.textBoxPlace.Size = new System.Drawing.Size(100, 22);
             this.textBoxPlace.TabIndex = 5;
@@ -130,7 +136,7 @@
             // checkBoxTime
             // 
             this.checkBoxTime.AutoSize = true;
-            this.checkBoxTime.Location = new System.Drawing.Point(190, 97);
+            this.checkBoxTime.Location = new System.Drawing.Point(318, 79);
             this.checkBoxTime.Name = "checkBoxTime";
             this.checkBoxTime.Size = new System.Drawing.Size(55, 21);
             this.checkBoxTime.TabIndex = 4;
@@ -141,7 +147,7 @@
             // checkBoxNumber
             // 
             this.checkBoxNumber.AutoSize = true;
-            this.checkBoxNumber.Location = new System.Drawing.Point(190, 70);
+            this.checkBoxNumber.Location = new System.Drawing.Point(318, 52);
             this.checkBoxNumber.Name = "checkBoxNumber";
             this.checkBoxNumber.Size = new System.Drawing.Size(111, 21);
             this.checkBoxNumber.TabIndex = 3;
@@ -152,7 +158,7 @@
             // checkBoxPlace
             // 
             this.checkBoxPlace.AutoSize = true;
-            this.checkBoxPlace.Location = new System.Drawing.Point(190, 43);
+            this.checkBoxPlace.Location = new System.Drawing.Point(318, 25);
             this.checkBoxPlace.Name = "checkBoxPlace";
             this.checkBoxPlace.Size = new System.Drawing.Size(67, 21);
             this.checkBoxPlace.TabIndex = 2;
@@ -170,7 +176,7 @@
             "Всі",
             "Здано",
             "Не здано"});
-            this.checkedListBoxReports.Location = new System.Drawing.Point(12, 43);
+            this.checkedListBoxReports.Location = new System.Drawing.Point(52, 23);
             this.checkedListBoxReports.Name = "checkedListBoxReports";
             this.checkedListBoxReports.Size = new System.Drawing.Size(138, 72);
             this.checkedListBoxReports.TabIndex = 1;
@@ -179,12 +185,13 @@
             // buttonRepport
             // 
             this.buttonRepport.AutoSize = true;
-            this.buttonRepport.Location = new System.Drawing.Point(129, 203);
+            this.buttonRepport.Location = new System.Drawing.Point(257, 217);
             this.buttonRepport.Name = "buttonRepport";
             this.buttonRepport.Size = new System.Drawing.Size(128, 27);
             this.buttonRepport.TabIndex = 0;
             this.buttonRepport.Text = "Сформувати звіт";
             this.buttonRepport.UseVisualStyleBackColor = true;
+            this.buttonRepport.Click += new System.EventHandler(this.ButtonRepport_Click);
             // 
             // contextMenuStrip1
             // 
@@ -200,7 +207,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1142, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1478, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -222,6 +229,8 @@
             // 
             // основніДіїЗПломбамиToolStripMenuItem
             // 
+            this.основніДіїЗПломбамиToolStripMenuItem.Checked = true;
+            this.основніДіїЗПломбамиToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.основніДіїЗПломбамиToolStripMenuItem.Name = "основніДіїЗПломбамиToolStripMenuItem";
             this.основніДіїЗПломбамиToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.основніДіїЗПломбамиToolStripMenuItem.Text = "Основні дії з пломбами";
@@ -249,14 +258,14 @@
             this.panelSeals.Controls.Add(this.checkBoxSPlace);
             this.panelSeals.Controls.Add(this.buttonSeals);
             this.panelSeals.Controls.Add(this.checkedListBoxSeals);
-            this.panelSeals.Location = new System.Drawing.Point(0, 31);
+            this.panelSeals.Location = new System.Drawing.Point(54, 448);
             this.panelSeals.Name = "panelSeals";
             this.panelSeals.Size = new System.Drawing.Size(608, 286);
             this.panelSeals.TabIndex = 3;
             // 
             // textBoxSMan
             // 
-            this.textBoxSMan.Location = new System.Drawing.Point(277, 107);
+            this.textBoxSMan.Location = new System.Drawing.Point(277, 23);
             this.textBoxSMan.Name = "textBoxSMan";
             this.textBoxSMan.Size = new System.Drawing.Size(100, 22);
             this.textBoxSMan.TabIndex = 19;
@@ -265,7 +274,7 @@
             // checkBoxSMan
             // 
             this.checkBoxSMan.AutoSize = true;
-            this.checkBoxSMan.Location = new System.Drawing.Point(161, 109);
+            this.checkBoxSMan.Location = new System.Drawing.Point(161, 25);
             this.checkBoxSMan.Name = "checkBoxSMan";
             this.checkBoxSMan.Size = new System.Drawing.Size(97, 21);
             this.checkBoxSMan.TabIndex = 18;
@@ -275,7 +284,7 @@
             // 
             // textBoxSTime
             // 
-            this.textBoxSTime.Location = new System.Drawing.Point(277, 79);
+            this.textBoxSTime.Location = new System.Drawing.Point(277, 110);
             this.textBoxSTime.Name = "textBoxSTime";
             this.textBoxSTime.Size = new System.Drawing.Size(100, 22);
             this.textBoxSTime.TabIndex = 15;
@@ -291,7 +300,7 @@
             // 
             // textBoxSPlace
             // 
-            this.textBoxSPlace.Location = new System.Drawing.Point(277, 23);
+            this.textBoxSPlace.Location = new System.Drawing.Point(277, 81);
             this.textBoxSPlace.Name = "textBoxSPlace";
             this.textBoxSPlace.Size = new System.Drawing.Size(100, 22);
             this.textBoxSPlace.TabIndex = 13;
@@ -301,12 +310,13 @@
             // checkBoxSTime
             // 
             this.checkBoxSTime.AutoSize = true;
-            this.checkBoxSTime.Location = new System.Drawing.Point(161, 80);
+            this.checkBoxSTime.Location = new System.Drawing.Point(161, 112);
             this.checkBoxSTime.Name = "checkBoxSTime";
             this.checkBoxSTime.Size = new System.Drawing.Size(55, 21);
             this.checkBoxSTime.TabIndex = 12;
             this.checkBoxSTime.Text = "Час";
             this.checkBoxSTime.UseVisualStyleBackColor = true;
+            this.checkBoxSTime.Visible = false;
             this.checkBoxSTime.CheckedChanged += new System.EventHandler(this.CheckBoxSTime_CheckedChanged);
             // 
             // checkBoxSNumber
@@ -323,7 +333,7 @@
             // checkBoxSPlace
             // 
             this.checkBoxSPlace.AutoSize = true;
-            this.checkBoxSPlace.Location = new System.Drawing.Point(161, 26);
+            this.checkBoxSPlace.Location = new System.Drawing.Point(161, 83);
             this.checkBoxSPlace.Name = "checkBoxSPlace";
             this.checkBoxSPlace.Size = new System.Drawing.Size(67, 21);
             this.checkBoxSPlace.TabIndex = 10;
@@ -334,7 +344,7 @@
             // buttonSeals
             // 
             this.buttonSeals.AutoSize = true;
-            this.buttonSeals.Location = new System.Drawing.Point(164, 212);
+            this.buttonSeals.Location = new System.Drawing.Point(264, 217);
             this.buttonSeals.Name = "buttonSeals";
             this.buttonSeals.Size = new System.Drawing.Size(81, 27);
             this.buttonSeals.TabIndex = 0;
@@ -389,11 +399,59 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "ID:";
             // 
+            // panelData
+            // 
+            this.panelData.Controls.Add(this.DataGridView);
+            this.panelData.Controls.Add(this.buttonSave);
+            this.panelData.Controls.Add(this.buttonBack);
+            this.panelData.Location = new System.Drawing.Point(0, 39);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(1450, 487);
+            this.panelData.TabIndex = 4;
+            // 
+            // DataGridView
+            // 
+            this.DataGridView.AllowUserToAddRows = false;
+            this.DataGridView.AllowUserToDeleteRows = false;
+            this.DataGridView.AllowUserToResizeColumns = false;
+            this.DataGridView.AllowUserToResizeRows = false;
+            this.DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView.Location = new System.Drawing.Point(91, 33);
+            this.DataGridView.Name = "DataGridView";
+            this.DataGridView.ReadOnly = true;
+            this.DataGridView.RowHeadersWidth = 51;
+            this.DataGridView.RowTemplate.Height = 24;
+            this.DataGridView.Size = new System.Drawing.Size(1347, 380);
+            this.DataGridView.TabIndex = 0;
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(757, 430);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.TabIndex = 4;
+            this.buttonBack.Text = "Назад";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.AutoSize = true;
+            this.buttonSave.Location = new System.Drawing.Point(42, 445);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(79, 27);
+            this.buttonSave.TabIndex = 5;
+            this.buttonSave.Text = "Зберегти";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 454);
+            this.ClientSize = new System.Drawing.Size(1478, 550);
+            this.Controls.Add(this.panelData);
             this.Controls.Add(this.panelSeals);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panelReport);
@@ -407,6 +465,9 @@
             this.menuStrip1.PerformLayout();
             this.panelSeals.ResumeLayout(false);
             this.panelSeals.PerformLayout();
+            this.panelData.ResumeLayout(false);
+            this.panelData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,6 +507,10 @@
         private System.Windows.Forms.TextBox textBoxDiap1;
         private System.Windows.Forms.CheckBox checkBoxDiapazon;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelData;
+        private System.Windows.Forms.DataGridView DataGridView;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
 

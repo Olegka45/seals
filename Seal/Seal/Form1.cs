@@ -21,7 +21,10 @@ namespace Seal
         {
             panelSeals.Location = new Point(0,31);
             panelReport.Location = new Point(0, 31);
-            ClientSize = new Size(330, 250);
+            ClientSize = new Size(450, 250);
+            panelData.Visible = false;
+            panelReport.Visible = false;
+
 
         }
 
@@ -114,8 +117,6 @@ namespace Seal
 
         }
 
-        
-
         private void CheckBoxSMan_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxSMan.Checked)
@@ -132,15 +133,17 @@ namespace Seal
         {
             panelReport.Visible = true;
             panelSeals.Visible = false;
+            формуванняЗвітівToolStripMenuItem.Checked = true;
+            основніДіїЗПломбамиToolStripMenuItem.Checked = false;
         }
 
         private void ОсновніДіїЗПломбамиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelReport.Visible = false;
             panelSeals.Visible = true;
+            формуванняЗвітівToolStripMenuItem.Checked = false;
+            основніДіїЗПломбамиToolStripMenuItem.Checked = true;
         }
-
-        
 
         private void CheckedListBoxReports_ItemCheck(object sender, ItemCheckEventArgs e)  // Leaves only one item checked
         {
@@ -164,6 +167,20 @@ namespace Seal
             {
                 textBoxDiap2.Visible = false;
             }
+        }
+
+        private void ButtonBack_Click(object sender, EventArgs e)
+        {
+            panelSeals.Visible = true;
+            panelData.Visible = false;
+            ClientSize = new Size(450, 250);
+        }
+
+        private void ButtonRepport_Click(object sender, EventArgs e)
+        {
+            panelData.Visible = true;
+            panelData.Location = new Point(0, 31);
+            ClientSize = new Size(1130, 450);
         }
     }
 }
